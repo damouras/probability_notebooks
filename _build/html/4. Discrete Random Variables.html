@@ -65,6 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '4. Discrete Random Variables';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Problem Solutions" href="Solutions.html" />
+    <link rel="prev" title="Conditional Probability" href="3.%20Conditional%20Probability.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -151,14 +153,16 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Probability Notebooks
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1.%20Probability%20Models.html">Probability Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.%20Counting.html">Counting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3.%20Conditional%20Probability.html">Conditional Probability</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Discrete Random Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Solutions.html">Problem Solutions</a></li>
 </ul>
 
     </div>
@@ -213,7 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/damouras/probability_notebooks" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -230,7 +234,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F4. Discrete Random Variables.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/damouras/probability_notebooks/issues/new?title=Issue%20on%20page%20%2F4. Discrete Random Variables.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -379,8 +383,8 @@ document.write(`
 <section id="linear-congruence-generators">
 <h2>Linear Congruence Generators<a class="headerlink" href="#linear-congruence-generators" title="Permalink to this headline">#</a></h2>
 <p>Until recently, the most commonly used PRNGs were <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_congruential_generator">Linear Congruential Generators (LCG)</a>. The idea behind these is very simple: you apply a <em>modulo</em> operation to a <em>linear recurrence</em>:
-$<span class="math notranslate nohighlight">\( x_{n+1} = (a \cdot x_n + c ) \mod m ; \quad \quad n \ge 0\)</span><span class="math notranslate nohighlight">\(
-There are four parameters in a LCG: the *modulus* \)</span>m<span class="math notranslate nohighlight">\(, the *multiplier* \)</span>a<span class="math notranslate nohighlight">\(, the *increment* \)</span>c<span class="math notranslate nohighlight">\(, and the sequence's initial value \)</span>x_0<span class="math notranslate nohighlight">\(, called the *seed*. Obviously, all numbers produced this way are in \)</span>{0,1,\ldots,m-1}<span class="math notranslate nohighlight">\(, because they are remainders of division by \)</span>m<span class="math notranslate nohighlight">\(. Below is an example for specific values \)</span>m=100, a=17, c=45, x_0=39$.</p>
+<span class="math notranslate nohighlight">\(x_{n+1} = (a \cdot x_n + c ) \mod m ; \quad \quad n \ge 0\)</span>
+There are four parameters in a LCG: the <em>modulus</em> <span class="math notranslate nohighlight">\(m\)</span>, the <em>multiplier</em> <span class="math notranslate nohighlight">\(a\)</span>, the <em>increment</em> <span class="math notranslate nohighlight">\(c\)</span>, and the sequence’s initial value <span class="math notranslate nohighlight">\(x_0\)</span>, called the <em>seed</em>. Obviously, all numbers produced this way are in <span class="math notranslate nohighlight">\(\{0,1,\ldots,m-1\}\)</span>, because they are remainders of division by <span class="math notranslate nohighlight">\(m\)</span>. Below is an example for specific values <span class="math notranslate nohighlight">\(m=100, a=17, c=45, x_0=39\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">17</span><span class="p">;</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span> 
@@ -499,7 +503,7 @@ The Binomial RV arrises as the # of successes in \)</span>n<span class="math not
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([8, 8, 6, 7, 5])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([8, 2, 9, 7, 7])
 </pre></div>
 </div>
 </div>
@@ -576,6 +580,24 @@ The Binomial RV arrises as the # of successes in \)</span>n<span class="math not
                 <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="3.%20Conditional%20Probability.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Conditional Probability</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Solutions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Problem Solutions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

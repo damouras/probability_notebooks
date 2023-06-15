@@ -151,7 +151,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Probability Notebooks
                 </a>
             </li>
         </ul>
@@ -159,6 +159,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="1.%20Probability%20Models.html">Probability Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.%20Counting.html">Counting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3.%20Conditional%20Probability.html">Conditional Probability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.%20Discrete%20Random%20Variables.html">Discrete Random Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Solutions.html">Problem Solutions</a></li>
 </ul>
 
     </div>
@@ -213,7 +215,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/damouras/probability_notebooks" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -230,7 +232,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F5.  Discrete Multivariate Distributions.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/damouras/probability_notebooks/issues/new?title=Issue%20on%20page%20%2F5.  Discrete Multivariate Distributions.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -353,11 +355,14 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes-classification">Naive Bayes Classification</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-a-posteriori-prediction">Maximum A Posteriori Prediction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-a-posteriori-classification">Maximum A Posteriori Classification</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes-assumption">Naive Bayes Assumption</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spam-data">Spam Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-estimation">Probability Estimation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">Classification</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">Problems</a></li>
 </ul>
             </nav>
         </div>
@@ -376,13 +381,13 @@ document.write(`
 <section id="naive-bayes-classification">
 <h2>Naive Bayes Classification<a class="headerlink" href="#naive-bayes-classification" title="Permalink to this headline">#</a></h2>
 <p>Classification is the problem of <em>predicting the class</em> of an object based on its other observed characteristics which are  probabilistically related to its class. We denote the class by the <em>categorical</em> (i.e., discrete finite) RV <span class="math notranslate nohighlight">\(Y\)</span>, called the <em>response</em> or <em>label</em>, and we denote the related variables by <span class="math notranslate nohighlight">\(X_1,\ldots,X_p\)</span>, called the <em>predictors</em> of <em>features</em>. For out purposes we will assume the predictors are also discrete finite RVs. So, to summarize, the goal of NBC is to predict the (unknown) value of <span class="math notranslate nohighlight">\(Y\)</span> based on the (observed) values of <span class="math notranslate nohighlight">\(X_1,\ldots, X_p\)</span>.</p>
-<section id="maximum-a-posteriori-prediction">
-<h3>Maximum A Posteriori Prediction<a class="headerlink" href="#maximum-a-posteriori-prediction" title="Permalink to this headline">#</a></h3>
+<section id="maximum-a-posteriori-classification">
+<h3>Maximum A Posteriori Classification<a class="headerlink" href="#maximum-a-posteriori-classification" title="Permalink to this headline">#</a></h3>
 <p>Assume we know the <em>joint</em> distribution of all #<span class="math notranslate nohighlight">\((p+1)\)</span> RVs <span class="math notranslate nohighlight">\(Y,X_1,\ldots, X_p\)</span> for starters. If we observed the values <span class="math notranslate nohighlight">\(x_1,\ldots, x_p\)</span> for <span class="math notranslate nohighlight">\(X_1,\ldots, X_p\)</span>, our best description of <span class="math notranslate nohighlight">\(Y\)</span> would be the <em>conditional</em> distribution:
 $<span class="math notranslate nohighlight">\( P( Y = y | X_1 =x_1, \ldots, X_p = x_p ),\quad \text{ for }  y \in \text{ range }(Y) \)</span><span class="math notranslate nohighlight">\(
 which gives you the conditional probabilities of the possible values of \)</span>Y<span class="math notranslate nohighlight">\(. If we then had to *guess* which value the RV \)</span>Y<span class="math notranslate nohighlight">\( takes, we would choose the *most likely* one, i.e. that which maximizes the conditional probability:
 \)</span><span class="math notranslate nohighlight">\( \hat{y} =  \arg \max_y P( Y = y | X_1 =x_1, \ldots, X_p = x_p ) \)</span>$
-This approach is called <a class="reference external" href="https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation">Maximum a Posteriori (MAP)</a> estimation, from the name of the conditional distribution, which is called the <a class="reference external" href="https://en.wikipedia.org/wiki/Posterior_probability"><em>posterior</em></a> in this context.</p>
+This approach is called <a class="reference external" href="https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation">Maximum a Posteriori (MAP)</a> prediction, from the name of the conditional distribution, which is called the <a class="reference external" href="https://en.wikipedia.org/wiki/Posterior_probability"><em>posterior</em></a> in this context.</p>
 <p>Furthermore, from Bayes theorem we get:
 $<span class="math notranslate nohighlight">\( P(Y=y|X_1=x_1,\ldots,X_p=x_p) = \frac{  P(Y=y, X_1 = x_1, \ldots, X_p = x_p ) } { P( X_1 = x_1, \ldots, X_p = x_p ) } \\ = \frac{  P( X_1 = x_1, \ldots, X_p = x_p | Y=y ) P(Y=y) } { P( X_1 = x_1, \ldots, X_p = x_p ) } \)</span><span class="math notranslate nohighlight">\(
 Note that \)</span>y$ appears only in the numerator, so maximizing the posterior is equivalent to maximizing the numerator, which is essentially a re-expression of the <em>joint</em> distribution. This is the form of the maximization we will perform, in order to avoid unnecessary calculations.</p>
@@ -401,8 +406,8 @@ I.e., the joint distribution can be expressed as a product of the \)</span>X<spa
 </section>
 <section id="spam-data">
 <h3>Spam Data<a class="headerlink" href="#spam-data" title="Permalink to this headline">#</a></h3>
-<p>We will be working with an open data set of 5726 emails, of which 1368 are <em>spam</em> and the remaining 4358 <em>ham</em> (legitimate). These are a subset of the <a class="reference external" href="http://nlp.cs.aueb.gr/software_and_datasets/Enron-Spam/index.html">http://nlp.cs.aueb.gr/software_and_datasets/Enron-Spam/index.html</a>
-We use the <span class="xref myst">pandas</span> library in Python for loading tabular/spreadsheet-like data, where each row represents and observation, and each column represents a field/variable. Column <code class="docutils literal notranslate"><span class="pre">text</span></code> contains the email text, and column <code class="docutils literal notranslate"><span class="pre">spam</span></code> indicates if the email is spam (1) or not (0); below is a preview:</p>
+<p>We will be working with a subset of the <a class="reference external" href="http://nlp.cs.aueb.gr/software_and_datasets/Enron-Spam/index.html">Enron-Spam dataset</a> consisting of 5726 emails, 1368 of which (23.9%) are <em>spam</em> and the remaining 4358 <em>ham</em> (legitimate).
+We use the <a class="reference external" href="https://pandas.pydata.org/">pandas</a> library in Python to work with table/spreadsheet-like data, where each row represents an observation and each column a field/variable. Column <code class="docutils literal notranslate"><span class="pre">text</span></code> contains the email text, and column <code class="docutils literal notranslate"><span class="pre">spam</span></code> indicates if the email is spam (1) or not (0); below is a preview:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -464,177 +469,129 @@ We use the <span class="xref myst">pandas</span> library in Python for loading t
 </table>
 </div></div></div>
 </div>
-<p>The spam column is our response, and the text here will provide our predictors. For the latter, we construct predictor/feature variables that record for the presence or absence of select words in <em>all</em> emails. This is a common pre-processing step for text analysis called [tokenization], which is a crude way to represent text since it misses all structure and meaning (it is part of  <span class="xref myst">bag-of-words</span> models).</p>
-<p>For our tokenization, we use the <code class="docutils literal notranslate"><span class="pre">feature_extraction.text.CountVectorizer</span></code> function in <code class="docutils literal notranslate"><span class="pre">scikit</span> <span class="pre">learn</span></code>. We remove infrequent (in &lt;10 emails) and very frequent (in &gt;30% of emails) words, since neither provides much information (e.g., if a word is in every email, it doesn’t say much about it being spam). There are 6233 reamining words, each one representing a <em>binary</em> feature, where 1 means the word is present in the email and 0 means otherwise. Below is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
 
 <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">stop_words</span> <span class="o">=</span> <span class="s1">&#39;english&#39;</span><span class="p">,</span> <span class="n">binary</span> <span class="o">=</span> <span class="s1">&#39;True&#39;</span><span class="p">,</span> <span class="n">min_df</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">max_df</span> <span class="o">=</span> <span class="mf">.30</span><span class="p">)</span> <span class="c1"># initialize vectorizer</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span> <span class="n">emails</span><span class="o">.</span><span class="n">text</span> <span class="p">)</span>   <span class="c1"># apply vectorizer to emails text column; output is sparse binary matrix </span>
-<span class="n">X_words</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>  <span class="c1"># extract word</span>
+<span class="n">X_words</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>  <span class="c1"># extract words</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">emails</span><span class="o">.</span><span class="n">spam</span>                               <span class="c1"># extract response</span>
 
-<span class="n">X_words</span><span class="p">[</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">500</span><span class="p">)</span> <span class="p">]</span>
+<span class="kn">import</span> <span class="nn">random</span><span class="p">;</span> <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span><span class="n">X_words</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;00&#39;, &#39;aggregate&#39;, &#39;bright&#39;, &#39;contractors&#39;, &#39;easter&#39;, &#39;forever&#39;,
-       &#39;indicating&#39;, &#39;loqo&#39;, &#39;official&#39;, &#39;projected&#39;, &#39;rush&#39;,
-       &#39;subscribed&#39;, &#39;vieira&#39;], dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;capture&#39;,
+ &#39;reaching&#39;,
+ &#39;aiesec&#39;,
+ &#39;enclosed&#39;,
+ &#39;bother&#39;,
+ &#39;ordered&#39;,
+ &#39;measures&#39;,
+ &#39;narrow&#39;,
+ &#39;spark&#39;,
+ &#39;introduced&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="probability-estimation">
+<h3>Probability Estimation<a class="headerlink" href="#probability-estimation" title="Permalink to this headline">#</a></h3>
+<p>We now estimate the joint distribution, which for NBC is given by the conditional probabilities of each word being present in a spam or non-spam email, i.e. <span class="math notranslate nohighlight">\(P( X_i=1 | Y=1 )\)</span> and <span class="math notranslate nohighlight">\(P( X_i = 1 | Y=0)\)</span> respectively. Notice that for any binary feature we have <span class="math notranslate nohighlight">\( P( X_i=0 | Y=y ) = 1 - P( X_i=1 | Y=y)\)</span> for any <span class="math notranslate nohighlight">\(y=0,1\)</span> by the complement rule, i.e. just one probability value determines the conditional distribution.</p>
+<p>Let’s focus on <span class="math notranslate nohighlight">\( P( X_i=1 | Y=1 ) = \frac{P( X_i=0, Y=1 ) }{P( Y=1 )}\)</span>: we could estimate this probability based on data by dividing the number of times word <span class="math notranslate nohighlight">\(i\)</span> appears in spam emails (corresponding to <span class="math notranslate nohighlight">\( \{X_i=0\} \cap \{Y=1\}\)</span>) by the number of spam emails (<span class="math notranslate nohighlight">\(\{Y=1\}\)</span>) in our data. But this approach has a problem: if there are no spam emails with that word in our data, the estimated probability will be 0, which implies it is <em>impossible</em> to ever have a spam email with that word. To avoid such extremes we employ <a class="reference external" href="https://en.wikipedia.org/wiki/Additive_smoothing">Laplace smoothing</a>, adjusting the ratio to allow a small probability of observing a word in every type of email. The estimated conditional probabilities become:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\hat{P}( X_i=1 | Y=1 ) = \frac{ \text{ # spam emails w/ word $i$}+1 }{ \text{# spam emails}+2 } \\
+\hat{P}( X_i=1 | Y=0 ) = \frac{ \text{ # ham emails w/ word $i$}+1 }{ \text{# ham emails}+2 } 
+\end{split}\]</div>
+<p>(the <em>hat</em> notation <span class="math notranslate nohighlight">\(\hat{P}\)</span> indicates this is an estimate). This, combined with the estimated (marginal) probability of spam:
+$<span class="math notranslate nohighlight">\( \hat{P}(Y=1) = \frac{ \text{ # spam emails } } { \text{ # emails } } \)</span>$
+is all we need for NBC.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">P_X_Y1</span> <span class="o">=</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">X</span><span class="p">[</span> <span class="n">Y</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">Y</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="p">)</span> <span class="c1"># Estimate P( X_i=1 | Y=1 )</span>
+<span class="n">P_X_Y0</span> <span class="o">=</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">X</span><span class="p">[</span> <span class="n">Y</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">Y</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="p">)</span> <span class="c1"># Estimate P( X_i=1 | Y=0 )</span>
+<span class="n">P_Y1</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">Y</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>  <span class="c1"># Estimate P( Y=1 )</span>
+<span class="n">P_Y0</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_Y1</span>
+
+<span class="c1"># np.sum( X[ Y == 1 ] , axis = 0) returns a vector with word counts:</span>
+<span class="c1"># X[ Y==1 ] uses Boolean array indexing to extract spam (Y==1) rows</span>
+<span class="c1"># (https://numpy.org/doc/stable/user/basics.indexing.html)</span>
+<span class="c1"># and np.sum( . , axis = 0 ) sums along word feature columns </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="classification">
+<h3>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">#</a></h3>
+<p>With probabilities estimated, we now apply our classifier on the same data to evualuate its performance. Using only the word features (<span class="math notranslate nohighlight">\(X\)</span>’s), we compare the two conditional probabilities <span class="math notranslate nohighlight">\(P( Y=1 | X_1=x_1,\ldots,X_p=x_p)\)</span> vs <span class="math notranslate nohighlight">\(P( Y=0 | X_1=x_1,\ldots,X_p=x_p)\)</span> and choose the class (<span class="math notranslate nohighlight">\(Y\)</span>=0/ham or 1/spam) giving the highest one. We saw above that we only need to calculate the numerator (denominator is common), which by the Naive Bayes assumption is factorized as:
+$<span class="math notranslate nohighlight">\( P( X_1 = x_1, \ldots, X_p = x_p | Y=y ) P(Y=y) =  \prod_{i=1}^{p} P(X_i = x_i | Y = y ) \times P( Y = y ) \)</span><span class="math notranslate nohighlight">\(
+If you tried to calculate this product in Python you would get 0 because it multiplies thousands of small probabilities. For numerical stability, we will compare the *logarithms* of the products which are the sums of their logs:
+\)</span><span class="math notranslate nohighlight">\( \log  \left( \prod_{i=1}^{p} P(X_i = x_i | Y = y ) \times P( Y = y ) \right) = \sum_{i=1}^{p} \log ( P(X_i = x_i | Y = y ) ) + \log(  P( Y = y ) ) \)</span><span class="math notranslate nohighlight">\(
+The following code loops over every email, compares the log-probabilities for ham/spam, and selects the class with the highest one. Note the use of the complement rule \)</span>P(X_i=0|Y=y) = 1 - P(X_i=1|Y=y)<span class="math notranslate nohighlight">\( for features with \)</span>X_i = 0$. At the end, it calculates the <em>accuracy</em>, i.e. the proportion of correctly classified emails, which is an impressive 96.75%!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Y_my_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span> <span class="p">:</span>
+    <span class="n">lP_Y0X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="n">P_X_Y0</span><span class="p">[</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_X_Y0</span><span class="p">[</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="n">P_Y0</span> <span class="p">)</span>
+    <span class="n">lP_Y1X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="n">P_X_Y1</span><span class="p">[</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_X_Y1</span><span class="p">[</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="n">P_Y1</span> <span class="p">)</span>
+    <span class="k">if</span> <span class="n">lP_Y1X</span> <span class="o">&gt;</span> <span class="n">lP_Y0X</span><span class="p">:</span>
+        <span class="n">Y_my_pred</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="nb">sum</span><span class="p">(</span> <span class="n">Y_my_pred</span> <span class="o">==</span> <span class="n">Y</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>   <span class="c1"># caclulate accuracy (% correct classification)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9675165909884736
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have effectively implemented the same procedure used in <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>, albeit less efficiently. For comparison, the following code gives</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">BernoulliNB</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">BernoulliNB</span><span class="p">()</span>      <span class="c1"># initiate Bernoulli (= binary feature) NBC </span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>            <span class="c1"># train model </span>
+<span class="n">Y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>  <span class="c1"># extract predictions</span>
+<span class="nb">sum</span><span class="p">(</span> <span class="n">Y_pred</span> <span class="o">==</span> <span class="n">Y</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9675165909884736
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">shape</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">emails</span><span class="o">.</span><span class="n">spam</span><span class="o">.</span><span class="n">array</span>
-<span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6233
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5726</span><span class="o">-</span><span class="nb">sum</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4358
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [5],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
+<span class="nn">Input In [6],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">)</span> <span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">))</span>
 
-<span class="ne">NameError</span>: name &#39;y&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">BernoulliNB</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">BernoulliNB</span><span class="p">()</span>
-<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="nb">sum</span><span class="p">(</span> <span class="n">y_pred</span> <span class="o">==</span> <span class="n">y_test</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9629888268156425
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span> <span class="p">)</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1031   51]
- [   2  348]]
-              precision    recall  f1-score   support
-
-           0       1.00      0.95      0.97      1082
-           1       0.87      0.99      0.93       350
-
-    accuracy                           0.96      1432
-   macro avg       0.94      0.97      0.95      1432
-weighted avg       0.97      0.96      0.96      1432
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">P_X_y0</span> <span class="o">=</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">X_train</span><span class="p">[</span> <span class="n">y_train</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">y_train</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="o">+</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
-<span class="n">P_X_y1</span> <span class="o">=</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">X_train</span><span class="p">[</span> <span class="n">y_train</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">y_train</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">+</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> 
-
-<span class="n">P_y0</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">y_train</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
-<span class="n">P_y1</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">y_train</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
-
-<span class="n">n_test</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
-<span class="n">y_my_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">))</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">))</span> <span class="p">:</span>
-    <span class="n">lP_y0X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="n">P_X_y0</span><span class="p">[</span> <span class="n">X_test</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_X_y0</span><span class="p">[</span> <span class="n">X_test</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="c1">#+ np.log( P_y0 )</span>
-    <span class="n">lP_y1X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="n">P_X_y1</span><span class="p">[</span> <span class="n">X_test</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_X_y1</span><span class="p">[</span> <span class="n">X_test</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="c1">#+ np.log( P_y1 )</span>
-    <span class="k">if</span> <span class="n">lP_y1X</span> <span class="o">&gt;</span> <span class="n">lP_y0X</span><span class="p">:</span>
-        <span class="n">y_my_pred</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="nb">sum</span><span class="p">(</span> <span class="n">y_pred</span> <span class="o">==</span> <span class="n">y_test</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9629888268156425
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_my_pred</span><span class="p">)</span> <span class="p">)</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_my_pred</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1042   40]
- [  86  264]]
-              precision    recall  f1-score   support
-
-           0       0.92      0.96      0.94      1082
-           1       0.87      0.75      0.81       350
-
-    accuracy                           0.91      1432
-   macro avg       0.90      0.86      0.88      1432
-weighted avg       0.91      0.91      0.91      1432
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">[</span> <span class="n">y_train</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;1018x6233 sparse matrix of type &#39;&lt;class &#39;numpy.int64&#39;&gt;&#39;
-	with 66870 stored elements in Compressed Sparse Row format&gt;
+<span class="ne">NameError</span>: name &#39;Y_test&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -652,6 +609,36 @@ weighted avg       0.91      0.91      0.91      1432
 </div>
 </div>
 </section>
+</section>
+<section id="problems">
+<h2>Problems<a class="headerlink" href="#problems" title="Permalink to this headline">#</a></h2>
+<p>Before applying the classifier, we split our data into a <a class="reference external" href="https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets">training and test</a> set; the training set is used to estimate the probabilities, and the test is used to evaluate the performance of the procedure. We do this to get an <em>objective</em> measure of performance on data that were not used to set up</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
+
+<span class="n">clf</span> <span class="o">=</span> <span class="n">BernoulliNB</span><span class="p">()</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+
+<span class="n">Y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">sum</span><span class="p">(</span> <span class="n">Y_pred</span> <span class="o">==</span> <span class="n">Y_test</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y_test</span><span class="p">)</span>
+
+
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9629888268156425
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -699,11 +686,14 @@ weighted avg       0.91      0.91      0.91      1432
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes-classification">Naive Bayes Classification</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-a-posteriori-prediction">Maximum A Posteriori Prediction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-a-posteriori-classification">Maximum A Posteriori Classification</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes-assumption">Naive Bayes Assumption</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spam-data">Spam Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-estimation">Probability Estimation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">Classification</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">Problems</a></li>
 </ul>
   </nav></div>
 

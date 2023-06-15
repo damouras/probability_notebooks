@@ -65,6 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Solutions';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Discrete Random Variables" href="4.%20Discrete%20Random%20Variables.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -151,14 +152,16 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Probability Notebooks
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1.%20Probability%20Models.html">Probability Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.%20Counting.html">Counting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3.%20Conditional%20Probability.html">Conditional Probability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.%20Discrete%20Random%20Variables.html">Discrete Random Variables</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Problem Solutions</a></li>
 </ul>
 
     </div>
@@ -213,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/damouras/probability_notebooks" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -230,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSolutions.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/damouras/probability_notebooks/issues/new?title=Issue%20on%20page%20%2FSolutions.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -352,15 +355,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Problem Solutions</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -444,9 +443,8 @@ Note that \)</span>\sum_{k=0}^{\infty } \frac{1}{k!} = e<span class="math notran
 where the subtracted remainder will always be \)</span>&lt;1<span class="math notranslate nohighlight">\( (see [here](https://math.stackexchange.com/questions/2406920/total-number-paths-between-two-nodes-in-a-complete-graph)), therefore we can use the floor function:
 \)</span><span class="math notranslate nohighlight">\(= \lfloor e \cdot (n−2)!  \rfloor\)</span>$</p>
 </section>
-</section>
 <section id="id3">
-<h1>3<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h1>
+<h2>3<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>Assume the binary symmetric channel (<span class="math notranslate nohighlight">\(p=.05\%\)</span>) with binary representation for the 10 digits. To minimize errors, you decide to transmit every bit in the binary representation <em>3 times</em>, and take the majority bit as received; this is an example of a <a class="reference external" href="https://en.wikipedia.org/wiki/Repetition_code">repetition code</a>. E.g., <span class="math notranslate nohighlight">\(2\)</span> would be mapped to <span class="math notranslate nohighlight">\((0010)\)</span>, which would be transmitted as <span class="math notranslate nohighlight">\(((000)(000)(111)(000))\)</span>. At the other end, if Bob received <span class="math notranslate nohighlight">\(( (010) (\cdots)(\cdots)(\cdots) )\)</span>, he would automatically correct <span class="math notranslate nohighlight">\((010)\)</span> to <span class="math notranslate nohighlight">\(0\)</span>, since 2/3 bits are <span class="math notranslate nohighlight">\(0\)</span>, etc. Find the probability of correct transmission for this scheme; this is a simple enough analytical caclulation that does not require Python. <br>
 (Note: This is an extension of Execise 2.12.(b) from <a class="reference external" href="https://drive.google.com/file/d/1VmkAAGOYCTORq1wxSQqy255qLJjTNvBI/view">B&amp;W</a>. )</p></li>
@@ -512,7 +510,7 @@ The overal probability of correct transmission for the entire code is <span clas
 <p>Note that the probability of correct transmission is smaller for 2-out-of-5 (77.38%) than for simple binary representation (81.45%); that’s because we use 5 instead of 4 bits, increasing the chances that at least some of them are corrupted. But notice that the probability of silent errors is now much smaller (1.29% vs 13.7%), which means probability of detecting errors is much higher (21.33% vs 4.85%). That’s because the 2-out-of-5 codes are farther appart, thanks to the extra bit.</p>
 </section>
 <section id="id4">
-<h1>4<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h1>
+<h2>4<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>Show (analytically) that if you take the PMF of a discrete uniform RV <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\([0,m)\)</span> and condition on it being <em>less than</em> <span class="math notranslate nohighlight">\(k\)</span>, with <span class="math notranslate nohighlight">\(k&lt;m\)</span>, then the resulting conditional distribution will be uniform in <span class="math notranslate nohighlight">\([0,k)\)</span>.</p></li>
 </ol>
@@ -569,10 +567,11 @@ which is the Discrete Uniform on \)</span>[0,k)$.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/314fd4b80f3627e6d74d0cfb44bf0ca5d7c3f0cad452d8fbe933ea8529e4241f.png" src="_images/314fd4b80f3627e6d74d0cfb44bf0ca5d7c3f0cad452d8fbe933ea8529e4241f.png" />
+<img alt="_images/2d4a343298fcd2be43274f5a1293066533cd3bd4194484e3846fda8f47b00a19.png" src="_images/2d4a343298fcd2be43274f5a1293066533cd3bd4194484e3846fda8f47b00a19.png" />
 </div>
 </div>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -603,6 +602,15 @@ which is the Discrete Uniform on \)</span>[0,k)$.</p>
                 <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="4.%20Discrete%20Random%20Variables.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Discrete Random Variables</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -618,15 +626,11 @@ which is the Discrete Uniform on \)</span>[0,k)$.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Problem Solutions</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

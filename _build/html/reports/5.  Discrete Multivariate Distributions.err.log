@@ -17,16 +17,22 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.25, random_state=1234)
+from sklearn.metrics import confusion_matrix
+print(confusion_matrix(Y_test, Y_pred) )
+
+from sklearn.metrics import classification_report
+print(classification_report(Y_test, Y_pred))
+
 ------------------
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mNameError[0m                                 Traceback (most recent call last)
-Input [1;32mIn [5][0m, in [0;36m<cell line: 2>[1;34m()[0m
-[0;32m      1[0m [38;5;28;01mfrom[39;00m [38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmodel_selection[39;00m [38;5;28;01mimport[39;00m train_test_split
-[1;32m----> 2[0m X_train, X_test, y_train, y_test [38;5;241m=[39m train_test_split( X, [43my[49m, test_size[38;5;241m=[39m[38;5;241m0.25[39m, random_state[38;5;241m=[39m[38;5;241m1234[39m)
+Input [1;32mIn [6][0m, in [0;36m<cell line: 2>[1;34m()[0m
+[0;32m      1[0m [38;5;28;01mfrom[39;00m [38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmetrics[39;00m [38;5;28;01mimport[39;00m confusion_matrix
+[1;32m----> 2[0m [38;5;28mprint[39m(confusion_matrix([43mY_test[49m, Y_pred) )
+[0;32m      4[0m [38;5;28;01mfrom[39;00m [38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmetrics[39;00m [38;5;28;01mimport[39;00m classification_report
+[0;32m      5[0m [38;5;28mprint[39m(classification_report(Y_test, Y_pred))
 
-[1;31mNameError[0m: name 'y' is not defined
-NameError: name 'y' is not defined
+[1;31mNameError[0m: name 'Y_test' is not defined
+NameError: name 'Y_test' is not defined
 

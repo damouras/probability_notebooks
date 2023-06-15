@@ -1,11 +1,9 @@
-# Welcome to your Jupyter Book
+# Probability Notebooks
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+Welcome to my collection of probability theory applications illustrated through [jupyter](https://jupyter.org/) notebooks. \\
+These notebooks contain examples of practical applications implemented in Python. They are categorized by topic, and they contain practice problems at the end of each notebook (with solutions in a separate notebook).\\
+You can find the code (.ipynb file) for each notebook at [github](https://github.com/damouras/probability_notebooks).
 
-Check out the content pages bundled with this sample book to see more.
 
 ```{tableofcontents}
 ```
