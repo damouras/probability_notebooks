@@ -451,8 +451,9 @@ document.write(`
 </div>
 <p>We can now answer questions such as: <em>If Bob received <span class="math notranslate nohighlight">\(R_4=(0100)\rightarrow D(R_4)=4\)</span>, what is the probability that Alice actually sent <span class="math notranslate nohighlight">\(M_4 = \{4\}\)</span> ?</em>, (This is an extension of Execise 2.12.(a) from <a class="reference external" href="https://drive.google.com/file/d/1VmkAAGOYCTORq1wxSQqy255qLJjTNvBI/view">B&amp;W</a>).
 <img alt="Bayes for coding" src="_images/binary_repr_code_bayes.svg" />
-We are looking for <span class="math notranslate nohighlight">\(P(M_4|R_4)\)</span> but we know <span class="math notranslate nohighlight">\(P(R_4|M_i)\)</span> and <span class="math notranslate nohighlight">\(P(M_i)\)</span> for all <span class="math notranslate nohighlight">\(i=0,\ldots,9\)</span>, which is exactly the setup for <em>Bayes rule</em>:
-$<span class="math notranslate nohighlight">\( P(M_i|R_j) = \frac{ P(R_j|M_i) P(M_i) }{ P( R_j) } = \frac{ P(M_i \cap R_j) }{ \sum_{i}  P( M_i \cap R_j) } \)</span>$</p>
+We are looking for <span class="math notranslate nohighlight">\(P(M_4|R_4)\)</span> but we know <span class="math notranslate nohighlight">\(P(R_4|M_i)\)</span> and <span class="math notranslate nohighlight">\(P(M_i)\)</span> for all <span class="math notranslate nohighlight">\(i=0,\ldots,9\)</span>, which is exactly the setup for <em>Bayes rule</em>:</p>
+<div class="math notranslate nohighlight">
+\[ P(M_i|R_j) = \frac{ P(R_j|M_i) P(M_i) }{ P( R_j) } = \frac{ P(M_i \cap R_j) }{ \sum_{i}  P( M_i \cap R_j) } \]</div>
 <p>The main ingredient in both numerator and denominator are the <em>joint</em> probabilities <span class="math notranslate nohighlight">\(P(M_i \cap R_j) = P(R_j|M_i) P(M_i)\)</span>, which are found by multiplying each element of the conditional probability matrix with the appropriate message probability. In our case, since all messages are equally likely, we can just multiply every element of <code class="docutils literal notranslate"><span class="pre">P_RgM</span></code> by 0.1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -492,9 +493,10 @@ $<span class="math notranslate nohighlight">\( P(M_i|R_j) = \frac{ P(R_j|M_i) P(
 </section>
 <section id="code-performance">
 <h3>Code Performance<a class="headerlink" href="#code-performance" title="Permalink to this headline">#</a></h3>
-<p>For overall code performance, we look at the probability of decoding the correct message, as well as the probability of errors, either <em>detected</em> or <em>undetected</em>. In our example, the overall probability (across all messages) of a correct communication is
-$<span class="math notranslate nohighlight">\( \sum_{i=0}^{9} P( M_i \cap R_i ) \)</span>$
-This is given by the sum of the diagonal elements of the joint probability matrix, according to the following plot:
+<p>For overall code performance, we look at the probability of decoding the correct message, as well as the probability of errors, either <em>detected</em> or <em>undetected</em>. In our example, the overall probability (across all messages) of a correct communication is</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{i=0}^{9} P( M_i \cap R_i ) \]</div>
+<p>This is given by the sum of the diagonal elements of the joint probability matrix, according to the following plot:
 <img alt="code_matrix" src="_images/code_matrix.svg" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

@@ -394,7 +394,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f593e878ab33b10e3a12c53366155b8bf89a2f2f525fc0d42a0fdc1b3fa17710.png" src="_images/f593e878ab33b10e3a12c53366155b8bf89a2f2f525fc0d42a0fdc1b3fa17710.png" />
+<img alt="_images/068dff15afaafda6541f72fc2f5c02ca78f4540d69739e55a5a382ca798bc317.png" src="_images/068dff15afaafda6541f72fc2f5c02ca78f4540d69739e55a5a382ca798bc317.png" />
 </div>
 </div>
 <p>The node/vertice set for this graph is <span class="math notranslate nohighlight">\(V = \{1,2,3,4,5\}\)</span>, and the edge set is <span class="math notranslate nohighlight">\(E=\{ \{1,2\}, \{1,3\}, \{1,4\}, \{2,4\}, \{2,5\}, \{3,4\} \}\)</span>. <br>
@@ -421,15 +421,17 @@ Alternatively, a graph may be specified by its <a class="reference external" hre
 <p>We first look at graphs with <em>labeled/distinguishable</em> nodes, since they are easier to count. (In unlabeled graphs, node identities don’t matter, only the edge structure.)</p>
 <section id="simple-graph">
 <h3>Simple graph<a class="headerlink" href="#simple-graph" title="Permalink to this headline">#</a></h3>
-<p>A simple graph has no repeated edges or loops (edges from a node to iteself). With <span class="math notranslate nohighlight">\(n\)</span> nodes, there are a total of
-$<span class="math notranslate nohighlight">\( 2^{ {n \choose 2} } = 2^{n(n-1)/2} \)</span><span class="math notranslate nohighlight">\(
-different graphs, since there are \)</span> {n \choose 2} <span class="math notranslate nohighlight">\( possible pairs of nodes, and each can be an edge or not (2 choices for each pair). Another way to look at it is through the adjacency matrix: due to symmetry there are \)</span>n(n-1)/2$ uniquely determined off-diagonal elements (e.g. elements of the top-right triangle), with two options (0/1) each. Note that for this count, we do not require all nodes to be <a class="reference external" href="https://en.wikipedia.org/wiki/Connectivity_(graph_theory)">connected</a>.</p>
+<p>A simple graph has no repeated edges or loops (edges from a node to iteself). With <span class="math notranslate nohighlight">\(n\)</span> nodes, there are a total of</p>
+<div class="math notranslate nohighlight">
+\[ 2^{ {n \choose 2} } = 2^{n(n-1)/2} \]</div>
+<p>different graphs, since there are <span class="math notranslate nohighlight">\( {n \choose 2} \)</span> possible pairs of nodes, and each can be an edge or not (2 choices for each pair). Another way to look at it is through the adjacency matrix: due to symmetry there are <span class="math notranslate nohighlight">\(n(n-1)/2\)</span> uniquely determined off-diagonal elements (e.g. elements of the top-right triangle), with two options (0/1) each. Note that for this count, we do not require all nodes to be <a class="reference external" href="https://en.wikipedia.org/wiki/Connectivity_(graph_theory)">connected</a>.</p>
 </section>
 <section id="loops">
 <h3>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">#</a></h3>
-<p>If the graph contains <a class="reference external" href="https://en.wikipedia.org/wiki/Loop_(graph_theory)">loops</a>, then there are
-$<span class="math notranslate nohighlight">\( 2^{ {n \choose 2} + n } \)</span><span class="math notranslate nohighlight">\(
-different graphs, since there are \)</span>n<span class="math notranslate nohighlight">\( additional possible loop edges, i.e. pairs of the form \)</span>{i,i}$ (or diagonal elements of the adjacency matrix).</p>
+<p>If the graph contains <a class="reference external" href="https://en.wikipedia.org/wiki/Loop_(graph_theory)">loops</a>, then there are</p>
+<div class="math notranslate nohighlight">
+\[ 2^{ {n \choose 2} + n } \]</div>
+<p>different graphs, since there are <span class="math notranslate nohighlight">\(n\)</span> additional possible loop edges, i.e. pairs of the form <span class="math notranslate nohighlight">\(\{i,i\}\)</span> (or diagonal elements of the adjacency matrix).</p>
 </section>
 <section id="digraphs">
 <h3>Digraphs<a class="headerlink" href="#digraphs" title="Permalink to this headline">#</a></h3>
@@ -444,7 +446,7 @@ different graphs, since there are \)</span>n<span class="math notranslate nohigh
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a0b61176a36216fc30c015da1b1d4b8e24fc921885205248baa200640a41b121.png" src="_images/a0b61176a36216fc30c015da1b1d4b8e24fc921885205248baa200640a41b121.png" />
+<img alt="_images/eba4d82ae04ead167d23b64d567dead66dacd57729bfead225b3d75d7a227877.png" src="_images/eba4d82ae04ead167d23b64d567dead66dacd57729bfead225b3d75d7a227877.png" />
 </div>
 </div>
 <p>The adjacency matrix of a digraph is no longer symmetric: the <span class="math notranslate nohighlight">\((i,j)^{th}\)</span> entry represents an arrow from <span class="math notranslate nohighlight">\(i\)</span> to <span class="math notranslate nohighlight">\(j\)</span>, and vice-versa:</p>
@@ -477,7 +479,7 @@ different graphs, since there are \)</span>n<span class="math notranslate nohigh
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7c1a19746e4573d36f2ccdee9994efa578f873b38b4f87bff96f7021e3607932.png" src="_images/7c1a19746e4573d36f2ccdee9994efa578f873b38b4f87bff96f7021e3607932.png" />
+<img alt="_images/003dfa902f7a48f95625a329fa7af4fa3c4f391c8b38e30ead15a344a015e8f9.png" src="_images/003dfa902f7a48f95625a329fa7af4fa3c4f391c8b38e30ead15a344a015e8f9.png" />
 </div>
 </div>
 <p>The number of labeled path graphs is <em>not</em> equal to <span class="math notranslate nohighlight">\(n!\)</span>, i.e. the number of node arrangments (permutations). Note that the (undirected) graphs <span class="math notranslate nohighlight">\((1-2-3)\)</span> and <span class="math notranslate nohighlight">\((3-2-1)\)</span> are considered identical, i.e. there is no notion of start or finish. <br>
@@ -509,9 +511,10 @@ where \)</span>\lfloor n/2 \rfloor<span class="math notranslate nohighlight">\( 
 <p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Connectivity_(graph_theory)#Connected_vertices_and_graphs">connected graph</a> has a path between any two nodes or, in other words, it has no isolated <a class="reference external" href="https://en.wikipedia.org/wiki/Induced_subgraph">subgraphs</a>; e.g., every complete graph is connected. The number of connected graphs cannot be found directly by multiplication/factorials, so we will employ a more advanced strategy of  deriving a <em>recurrence relation</em>, which can be solve iteratively. <br>
 Let <span class="math notranslate nohighlight">\(C_k\)</span> be the number of connected graphs with <span class="math notranslate nohighlight">\(k\)</span> nodes. There are <span class="math notranslate nohighlight">\(2^{ {n \choose 2} }\)</span> possible simple graphs of <span class="math notranslate nohighlight">\(n\)</span> nodes, and we can partition them into <span class="math notranslate nohighlight">\(n\)</span> classes as follows: Fix a node, say <span class="math notranslate nohighlight">\(1\)</span>, and considered the maximal <em>connected subgraph</em> containing that node:
 <img src="./img/2/connected_subgraph.svg" alt="connected subgraph decomposition" style="width: 200px;"/>
-In the plot above, node <span class="math notranslate nohighlight">\(1\)</span> belongs to an isolated, connected subgraph of size <span class="math notranslate nohighlight">\(k\)</span>, and the remaining nodes belong to another <em>not necessarily connected</em>  subgraph. There are <span class="math notranslate nohighlight">\({n-1 \choose k-1}\)</span> ways to select the <span class="math notranslate nohighlight">\(k-1\)</span> nodes (besides node <span class="math notranslate nohighlight">\(1\)</span>), and <span class="math notranslate nohighlight">\(C_k\)</span> ways to form the connected subgraph, according to our assumption. And, independently, there are <span class="math notranslate nohighlight">\(2^{ {n-k \choose 2} }\)</span> ways to form the other subgraph. If combine all possible sizes <span class="math notranslate nohighlight">\(k=1,\ldots,n\)</span> of connected subgraphs containing node <span class="math notranslate nohighlight">\(1\)</span>, we get the total number of simple labeled graphs, i.e.:
-$<span class="math notranslate nohighlight">\( \sum_{k=1}^{n} { n-1 \choose k-1 } C_k 2^{ { n-k \choose 2 } } = 2^{ {n \choose 2} } \)</span><span class="math notranslate nohighlight">\(
-This relation can be used iteratively, for \)</span>C_1=1<span class="math notranslate nohighlight">\( and increasing \)</span>n=2,\ldots<span class="math notranslate nohighlight">\(, to find values of \)</span>C_n<span class="math notranslate nohighlight">\(. The sequence of solutions is available at [OEIS](http://oeis.org/A001187/list) (*On-Line Encyclopedia of Integer Sequences*). E.g., for \)</span>n=3<span class="math notranslate nohighlight">\( we have \)</span>C_3=4$, verified by:
+In the plot above, node <span class="math notranslate nohighlight">\(1\)</span> belongs to an isolated, connected subgraph of size <span class="math notranslate nohighlight">\(k\)</span>, and the remaining nodes belong to another <em>not necessarily connected</em>  subgraph. There are <span class="math notranslate nohighlight">\({n-1 \choose k-1}\)</span> ways to select the <span class="math notranslate nohighlight">\(k-1\)</span> nodes (besides node <span class="math notranslate nohighlight">\(1\)</span>), and <span class="math notranslate nohighlight">\(C_k\)</span> ways to form the connected subgraph, according to our assumption. And, independently, there are <span class="math notranslate nohighlight">\(2^{ {n-k \choose 2} }\)</span> ways to form the other subgraph. If combine all possible sizes <span class="math notranslate nohighlight">\(k=1,\ldots,n\)</span> of connected subgraphs containing node <span class="math notranslate nohighlight">\(1\)</span>, we get the total number of simple labeled graphs, i.e.:</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{k=1}^{n} { n-1 \choose k-1 } C_k 2^{ { n-k \choose 2 } } = 2^{ {n \choose 2} } \]</div>
+<p>This relation can be used iteratively, for <span class="math notranslate nohighlight">\(C_1=1\)</span> and increasing <span class="math notranslate nohighlight">\(n=2,\ldots\)</span>, to find values of <span class="math notranslate nohighlight">\(C_n\)</span>. The sequence of solutions is available at <a class="reference external" href="http://oeis.org/A001187/list">OEIS</a> (<em>On-Line Encyclopedia of Integer Sequences</em>). E.g., for <span class="math notranslate nohighlight">\(n=3\)</span> we have <span class="math notranslate nohighlight">\(C_3=4\)</span>, verified by:
 <img src="./img/2/C_3.svg" alt="connected graphs of size 3" style="width: 300px;"/></p>
 </section>
 </section>
@@ -520,9 +523,10 @@ This relation can be used iteratively, for \)</span>C_1=1<span class="math notra
 <p>So far we only looked at labeled graphs, i.e. graphs with distinguishable nodes. In many cases, the labeling of the nodes is not relevant, only the “structure” of the graph. For example, there are only 2 different unlabeled connected graphs of 3 nodes, the “path” and the “triangle”:
 <img src="./img/2/unlabeled_C_3.svg" alt="connected unlabeled graphs of size 3" style="width: 150px;"/>
 Comparing that to the 4 labeled connected graphs, the 3 labeled “path” graphs are all equivalent to 1 unlabeled “path”. The 3 labeled “path” graphs are called <a class="reference external" href="https://en.wikipedia.org/wiki/Graph_isomorphism">isomorphic</a>, because they have the same <em>shape</em>, i.e. you can rearrange their labels and get the same graph. With unlabeled graphs, we are essentially counting <a class="reference external" href="https://en.wikipedia.org/wiki/Equivalence_class">equivalence classes</a> under isomorphism.</p>
-<p>Counting unlabeled graphs is hard, because there are varying numbers of isomorphic labeled graphs of each type. In the above example, there are 3 isomorphic “path” graphs, but only one “triangle” graph. Nevertheless, we can easily find a lower bound on the number of unlabeled simple graphs, since there are at most <span class="math notranslate nohighlight">\(n!\)</span> permutations/rearrangements of the labels. Therefore, there are <em>at least</em>
-$<span class="math notranslate nohighlight">\( \frac{ 2^{ {n \choose 2} } } {n!} \)</span><span class="math notranslate nohighlight">\(
-simple unlabelled graphs, and this lower bound becomes tighter as \)</span>n<span class="math notranslate nohighlight">\( increases (there are fewer isomorphisms as the graphs get larger). The are more sophisticated ways to count simple unlabeled graphs, whose counts are given [here](http://oeis.org/A000088). You can verify the count for \)</span>n=3$ from the plot below:</p>
+<p>Counting unlabeled graphs is hard, because there are varying numbers of isomorphic labeled graphs of each type. In the above example, there are 3 isomorphic “path” graphs, but only one “triangle” graph. Nevertheless, we can easily find a lower bound on the number of unlabeled simple graphs, since there are at most <span class="math notranslate nohighlight">\(n!\)</span> permutations/rearrangements of the labels. Therefore, there are <em>at least</em></p>
+<div class="math notranslate nohighlight">
+\[ \frac{ 2^{ {n \choose 2} } } {n!} \]</div>
+<p>simple unlabelled graphs, and this lower bound becomes tighter as <span class="math notranslate nohighlight">\(n\)</span> increases (there are fewer isomorphisms as the graphs get larger). The are more sophisticated ways to count simple unlabeled graphs, whose counts are given <a class="reference external" href="http://oeis.org/A000088">here</a>. You can verify the count for <span class="math notranslate nohighlight">\(n=3\)</span> from the plot below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">graph_atlas_g</span><span class="p">()</span> <span class="c1"># Returns the list of all unlabeled graphs of up to seven nodes </span>

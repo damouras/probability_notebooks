@@ -397,7 +397,7 @@ In this notebook, we will use Python to create tangible probability models that 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;T&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;T&#39;, &#39;H&#39;}
 set()
 {&#39;T&#39;}
 </pre></div>
@@ -475,8 +475,9 @@ We can define this set function in Python as</p>
 </section>
 <section id="general-finite-probability-space">
 <h2>General Finite Probability Space<a class="headerlink" href="#general-finite-probability-space" title="Permalink to this headline">#</a></h2>
-<p>In the previous examples, all outcomes have equal probability <span class="math notranslate nohighlight">\(1/|S|\)</span>. More generally, you want to allow every outcome to have different probability, and if you only have a finite number of outcomes, the axioms imply that the probability of every event is the sum of the probabilities of its constituent outcomes:
-$<span class="math notranslate nohighlight">\( A = \{s_1, \ldots, s_n\} \Rightarrow \quad P(A) = \sum_{i=1}^n P( \{s_i\} ) \)</span>$</p>
+<p>In the previous examples, all outcomes have equal probability <span class="math notranslate nohighlight">\(1/|S|\)</span>. More generally, you want to allow every outcome to have different probability, and if you only have a finite number of outcomes, the axioms imply that the probability of every event is the sum of the probabilities of its constituent outcomes:</p>
+<div class="math notranslate nohighlight">
+\[ A = \{s_1, \ldots, s_n\} \Rightarrow \quad P(A) = \sum_{i=1}^n P( \{s_i\} ) \]</div>
 <p>In other words, the set of outcome probabilities <span class="math notranslate nohighlight">\(P(\{s_i\}), \forall s_i \in S\)</span> with <span class="math notranslate nohighlight">\(|S|&lt; \infty\)</span> determines the probability of every event, and hence the probability function <span class="math notranslate nohighlight">\(P(\cdot)\)</span> more generally.</p>
 <p>We implement this in Python by proving the collection of outcomes <em>and</em> their corresponding probabilities in the probabability function. Because sets are unordered, we will use lists: one for the outcomes and oe for the corresponding probabilities. The lists’ indexing will represent the mapping of outcomes to probabilites (e.g. first outcome to first probability, etc).</p>
 <p>Consider the same setup of 7 coin flips, but let the coin be <em>biased</em> with probability of heads <span class="math notranslate nohighlight">\(p = 1/3\)</span> and probability of tails <span class="math notranslate nohighlight">\(q=1-p=2/3\)</span>. Then the probability of two heads in a row is <span class="math notranslate nohighlight">\(p^2\)</span>, the probability of one head and one tails (any order) is <span class="math notranslate nohighlight">\(pq\)</span>, and so on (we will formalize why we multiply the probabilities soon). The following code calculates the probabilities of all outcomes in the sample space of 7 coin flips.</p>
@@ -520,7 +521,7 @@ $<span class="math notranslate nohighlight">\( A = \{s_1, \ldots, s_n\} \Rightar
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13488797439414724
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13488797439414718
 </pre></div>
 </div>
 </div>

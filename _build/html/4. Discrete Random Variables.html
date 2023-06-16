@@ -464,12 +464,13 @@ There are four parameters in a LCG: the <em>modulus</em> <span class="math notra
 </section>
 <section id="binomial-distribution">
 <h2>Binomial Distribution<a class="headerlink" href="#binomial-distribution" title="Permalink to this headline">#</a></h2>
-<p>We now verify the Probability Mass Function (PMF) of the Binomial<span class="math notranslate nohighlight">\((n,p)\)</span> distribution:
-$<span class="math notranslate nohighlight">\( P(X=x) = \begin{cases} { n \choose x } p^x (1-p)^{n-x}, &amp; x\in \{0,1,\ldots, n\} \\
+<p>We now verify the Probability Mass Function (PMF) of the Binomial<span class="math notranslate nohighlight">\((n,p)\)</span> distribution:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} P(X=x) = \begin{cases} { n \choose x } p^x (1-p)^{n-x}, &amp; x\in \{0,1,\ldots, n\} \\
 0, &amp; \textrm{o/w}
-\end{cases}\)</span><span class="math notranslate nohighlight">\(
-This and other commmon PMFs are available in Python's [```scipy.stats```](https://docs.scipy.org/doc/scipy/reference/stats.html?highlight=stats#module-scipy.stats) module. 
-The Binomial RV arrises as the # of successes in \)</span>n<span class="math notranslate nohighlight">\( independent Bernoulli trials, all with the same probability of success \)</span>p<span class="math notranslate nohighlight">\(. The ```random.choices``` function can simulate any *finite* discrete RV, including Bernoulli trials for any \)</span>p<span class="math notranslate nohighlight">\( (we could also generate Binomials directly using ```scipy.stats.binom.rvs```, but we want to illustrate how the transformation works). We represent &quot;success&quot; with \)</span>1<span class="math notranslate nohighlight">\( and &quot;failure&quot; with \)</span>0$, which allows us to <em>sum</em> the results go get Binomial random numbers. The following code generates 1000 Binomial random <em>variates</em> (variate is another name for a realized value of a RV), and plots their relative frequency together with their theoretical PMF.</p>
+\end{cases}\end{split}\]</div>
+<p>This and other commmon PMFs are available in Python’s <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html?highlight=stats#module-scipy.stats"><code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code></a> module.
+The Binomial RV arrises as the # of successes in <span class="math notranslate nohighlight">\(n\)</span> independent Bernoulli trials, all with the same probability of success <span class="math notranslate nohighlight">\(p\)</span>. The <code class="docutils literal notranslate"><span class="pre">random.choices</span></code> function can simulate any <em>finite</em> discrete RV, including Bernoulli trials for any <span class="math notranslate nohighlight">\(p\)</span> (we could also generate Binomials directly using <code class="docutils literal notranslate"><span class="pre">scipy.stats.binom.rvs</span></code>, but we want to illustrate how the transformation works). We represent “success” with <span class="math notranslate nohighlight">\(1\)</span> and “failure” with <span class="math notranslate nohighlight">\(0\)</span>, which allows us to <em>sum</em> the results go get Binomial random numbers. The following code generates 1000 Binomial random <em>variates</em> (variate is another name for a realized value of a RV), and plots their relative frequency together with their theoretical PMF.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span>        <span class="c1"># Binomial parameters</span>
@@ -503,7 +504,7 @@ The Binomial RV arrises as the # of successes in \)</span>n<span class="math not
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([8, 2, 9, 7, 7])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6, 6, 4, 7, 4])
 </pre></div>
 </div>
 </div>
