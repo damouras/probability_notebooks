@@ -394,12 +394,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/068dff15afaafda6541f72fc2f5c02ca78f4540d69739e55a5a382ca798bc317.png" src="_images/068dff15afaafda6541f72fc2f5c02ca78f4540d69739e55a5a382ca798bc317.png" />
+<img alt="_images/fbb9597b592c7cdb9435aa701d4db7960c7a05346a0eaefc509531b849b0e32e.png" src="_images/fbb9597b592c7cdb9435aa701d4db7960c7a05346a0eaefc509531b849b0e32e.png" />
 </div>
 </div>
-<p>The node/vertice set for this graph is <span class="math notranslate nohighlight">\(V = \{1,2,3,4,5\}\)</span>, and the edge set is <span class="math notranslate nohighlight">\(E=\{ \{1,2\}, \{1,3\}, \{1,4\}, \{2,4\}, \{2,5\}, \{3,4\} \}\)</span>. <br>
-Alternatively, a graph may be specified by its <a class="reference external" href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a>, which is a square (<span class="math notranslate nohighlight">\(n \times n\)</span>) matrix with <span class="math notranslate nohighlight">\(0/1\)</span> values representing the presence/absence of an edge between the row and column indices. For example, the graph above has adjacency matrix:</p>
-<img src="./img/2/adjacency_mat.svg" alt="adjacency matrix" style="width: 200px;"/><div class="cell docutils container">
+<p>The node/vertice set for this graph is <span class="math notranslate nohighlight">\(V = \{1,2,3,4,5\}\)</span>, and the edge set is <span class="math notranslate nohighlight">\(E=\{ \{1,2\}, \{1,3\}, \{1,4\}, \{2,4\}, \{2,5\}, \{3,4\} \}\)</span>. Alternatively, a graph may be specified by its <a class="reference external" href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a>, which is a square (<span class="math notranslate nohighlight">\(n \times n\)</span>) matrix with <span class="math notranslate nohighlight">\(0/1\)</span> values representing the presence/absence of an edge between the row and column indices. For example, the graph above has adjacency matrix:</p>
+<a class="reference internal image-reference" href="_images/adjacency_mat.svg"><img alt="adjacency matrix" src="_images/adjacency_mat.svg" width="200px" /></a>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">to_numpy_matrix</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 </pre></div>
@@ -446,7 +446,7 @@ Alternatively, a graph may be specified by its <a class="reference external" hre
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/eba4d82ae04ead167d23b64d567dead66dacd57729bfead225b3d75d7a227877.png" src="_images/eba4d82ae04ead167d23b64d567dead66dacd57729bfead225b3d75d7a227877.png" />
+<img alt="_images/defac233e98427f6feb15d5ee6c85312bb6eb14991a11422df0cc57987853858.png" src="_images/defac233e98427f6feb15d5ee6c85312bb6eb14991a11422df0cc57987853858.png" />
 </div>
 </div>
 <p>The adjacency matrix of a digraph is no longer symmetric: the <span class="math notranslate nohighlight">\((i,j)^{th}\)</span> entry represents an arrow from <span class="math notranslate nohighlight">\(i\)</span> to <span class="math notranslate nohighlight">\(j\)</span>, and vice-versa:</p>
@@ -479,49 +479,50 @@ Alternatively, a graph may be specified by its <a class="reference external" hre
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/003dfa902f7a48f95625a329fa7af4fa3c4f391c8b38e30ead15a344a015e8f9.png" src="_images/003dfa902f7a48f95625a329fa7af4fa3c4f391c8b38e30ead15a344a015e8f9.png" />
+<img alt="_images/0c906c03b69cc58115b7fe36f4ac79b2a120730d00038a78d77eec8663b8189c.png" src="_images/0c906c03b69cc58115b7fe36f4ac79b2a120730d00038a78d77eec8663b8189c.png" />
 </div>
 </div>
 <p>The number of labeled path graphs is <em>not</em> equal to <span class="math notranslate nohighlight">\(n!\)</span>, i.e. the number of node arrangments (permutations). Note that the (undirected) graphs <span class="math notranslate nohighlight">\((1-2-3)\)</span> and <span class="math notranslate nohighlight">\((3-2-1)\)</span> are considered identical, i.e. there is no notion of start or finish. <br>
-Here we use an <em>overcounting</em> strategy to find the total number of labeled path graphs of <span class="math notranslate nohighlight">\(n\)</span> nodes. The strategy involves counting more complex structures than required, and then adjusting the count by division or subtraction. In our case, there are <span class="math notranslate nohighlight">\(n!\)</span> paths with specified beginning and end, and by dividing this count by 2 (for either direction) we get the desired result
-$<span class="math notranslate nohighlight">\(\frac{n!}{2}\)</span><span class="math notranslate nohighlight">\(
-(Note: the number of *directed* path graphs, which have a natural beggining and end, is \)</span>n!$).</p>
+Here we use an <em>overcounting</em> strategy to find the total number of labeled path graphs of <span class="math notranslate nohighlight">\(n\)</span> nodes. The strategy involves counting more complex structures than required, and then adjusting the count by division or subtraction. In our case, there are <span class="math notranslate nohighlight">\(n!\)</span> paths with specified beginning and end, and by dividing this count by 2 (for either direction) we get the desired result <span class="math notranslate nohighlight">\(\frac{n!}{2}\)</span>.</p>
+<p>(Note: the number of <em>directed</em> path graphs, which have a natural beggining and end, is <span class="math notranslate nohighlight">\(n!\)</span>).</p>
 </section>
 <section id="bipartite-graphs">
 <h3>Bipartite Graphs<a class="headerlink" href="#bipartite-graphs" title="Permalink to this headline">#</a></h3>
 <p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Bipartite_graph">bipartite graph</a> (or bigraph) is one whose vertices can be partitioned into two sets <span class="math notranslate nohighlight">\(V_1, V_2\)</span> so that is every edge only connects nodes <em>between</em> the sets</p>
-<img src="./img/2/bigraph.svg" alt="bipartite graph" style="width: 200px;"/>
-<p>The adjacency matrix of a bigraph has a special structure, with <span class="math notranslate nohighlight">\(0\)</span>’s within the disjoint sets of nodes, and possible <span class="math notranslate nohighlight">\(1\)</span>’s only between them:
-<img src="./img/2/bigraph_adj.svg" alt="bigraph_adjacency_matrix" style="width: 200px;"/>
-(The rows and columns of the matrix have been re-order so that the node sets appear contiguous, but that is not necessary.)</p>
+<a class="reference internal image-reference" href="_images/bigraph.png"><img alt="bipartite graph" src="_images/bigraph.png" style="width: 200px;" /></a>
+<p>The adjacency matrix of a bigraph has a special structure, with <span class="math notranslate nohighlight">\(0\)</span>’s within the disjoint sets of nodes, and possible <span class="math notranslate nohighlight">\(1\)</span>’s only between them:</p>
+<a class="reference internal image-reference" href="_images/bigraph_adj.png"><img alt="bigraph_adjacency_matrix" src="_images/bigraph_adj.png" style="width: 200px;" /></a>
+<p>(The rows and columns of the matrix have been re-order so that the node sets appear contiguous, but that is not necessary.)</p>
 <p>For fixed <span class="math notranslate nohighlight">\(m \in \{1,\ldots, n-1\}\)</span>, there are <span class="math notranslate nohighlight">\({n \choose m}\)</span> ways to partition <span class="math notranslate nohighlight">\(n\)</span> nodes into sets of size <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n-m\)</span>,  and <span class="math notranslate nohighlight">\(m \cdot (n-m)\)</span> potential edges with 2 choices each (rectangle in adjacency matrix). Hence, there are <span class="math notranslate nohighlight">\({n \choose m} 2^{m(n-m)}\)</span> such (labeled) bigraphs of sets sizes <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\((n-m)\)</span>. Nevertheless, counting <em>all</em> bigraphs for all <span class="math notranslate nohighlight">\(m\)</span> is more involved (e.g. a totally disconnected graph is a digraph for <em>any</em> value of <span class="math notranslate nohighlight">\(m\)</span>, and would therefore be over-counted).</p>
 </section>
 <section id="complete-bipartite-graphs">
 <h3>Complete Bipartite Graphs<a class="headerlink" href="#complete-bipartite-graphs" title="Permalink to this headline">#</a></h3>
-<p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Complete_bipartite_graph">complete bigraph</a> has <em>every</em> node in one set connected to <em>every</em> node in the other set:
-<img src="./img/2/complete_bigraph.svg" alt="bipartite graph" style="width: 200px;"/></p>
+<p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Complete_bipartite_graph">complete bigraph</a> has <em>every</em> node in one set connected to <em>every</em> node in the other set:</p>
+<a class="reference internal image-reference" href="_images/complete_bigraph.png"><img alt="complete bipartite graph" src="_images/complete_bigraph.png" style="width: 200px;" /></a>
 <p>Note that for given node sets, there is only <em>one</em> complete bigraph. Therefore, the number of (labeled) complete graphs is just the number of ways to split <span class="math notranslate nohighlight">\(n\)</span> nodes into two sets. Here we use another counting strategy: breaking up the problem into disjoint and exhaustive cases, and adding their counts to get the total. <br>
-The sizes of the node sets must sum up to <span class="math notranslate nohighlight">\(n\)</span>, so there are <span class="math notranslate nohighlight">\(\lfloor n/2 \rfloor\)</span> <em>distinct</em> partition sizes  (b/c <span class="math notranslate nohighlight">\( \{m,n-m\} = \{n-m,m\}\)</span>):
-$<span class="math notranslate nohighlight">\( \{1,n-1\}, \{2,n-2\}, \ldots, \{ \lfloor n/2 \rfloor, n - \lfloor n/2 \rfloor \} ,\)</span><span class="math notranslate nohighlight">\(
-where \)</span>\lfloor n/2 \rfloor<span class="math notranslate nohighlight">\( is the [floor function](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions). The total number of labeled complete bipartite graphs is:
-\)</span><span class="math notranslate nohighlight">\( \sum_{i=1}^{\lfloor n/2 \rfloor} { n \choose m}\)</span>$</p>
+The sizes of the node sets must sum up to <span class="math notranslate nohighlight">\(n\)</span>, so there are <span class="math notranslate nohighlight">\(\lfloor n/2 \rfloor\)</span> <em>distinct</em> partition sizes  (b/c <span class="math notranslate nohighlight">\( \{m,n-m\} = \{n-m,m\}\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[ \{1,n-1\}, \{2,n-2\}, \ldots, \{ \lfloor n/2 \rfloor, n - \lfloor n/2 \rfloor \} ,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lfloor n/2 \rfloor\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Floor_and_ceiling_functions">floor function</a>. The total number of labeled complete bipartite graphs is:</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{i=1}^{\lfloor n/2 \rfloor} { n \choose m}\]</div>
 </section>
 <section id="connected-graphs">
 <h3>Connected Graphs<a class="headerlink" href="#connected-graphs" title="Permalink to this headline">#</a></h3>
 <p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Connectivity_(graph_theory)#Connected_vertices_and_graphs">connected graph</a> has a path between any two nodes or, in other words, it has no isolated <a class="reference external" href="https://en.wikipedia.org/wiki/Induced_subgraph">subgraphs</a>; e.g., every complete graph is connected. The number of connected graphs cannot be found directly by multiplication/factorials, so we will employ a more advanced strategy of  deriving a <em>recurrence relation</em>, which can be solve iteratively. <br>
 Let <span class="math notranslate nohighlight">\(C_k\)</span> be the number of connected graphs with <span class="math notranslate nohighlight">\(k\)</span> nodes. There are <span class="math notranslate nohighlight">\(2^{ {n \choose 2} }\)</span> possible simple graphs of <span class="math notranslate nohighlight">\(n\)</span> nodes, and we can partition them into <span class="math notranslate nohighlight">\(n\)</span> classes as follows: Fix a node, say <span class="math notranslate nohighlight">\(1\)</span>, and considered the maximal <em>connected subgraph</em> containing that node:
-<img src="./img/2/connected_subgraph.svg" alt="connected subgraph decomposition" style="width: 200px;"/>
+<a class="reference internal" href="_images/connected_subgraph.png"><img alt="connected subgraph decomposition" src="_images/connected_subgraph.png" style="width: 200px;" /></a>
 In the plot above, node <span class="math notranslate nohighlight">\(1\)</span> belongs to an isolated, connected subgraph of size <span class="math notranslate nohighlight">\(k\)</span>, and the remaining nodes belong to another <em>not necessarily connected</em>  subgraph. There are <span class="math notranslate nohighlight">\({n-1 \choose k-1}\)</span> ways to select the <span class="math notranslate nohighlight">\(k-1\)</span> nodes (besides node <span class="math notranslate nohighlight">\(1\)</span>), and <span class="math notranslate nohighlight">\(C_k\)</span> ways to form the connected subgraph, according to our assumption. And, independently, there are <span class="math notranslate nohighlight">\(2^{ {n-k \choose 2} }\)</span> ways to form the other subgraph. If combine all possible sizes <span class="math notranslate nohighlight">\(k=1,\ldots,n\)</span> of connected subgraphs containing node <span class="math notranslate nohighlight">\(1\)</span>, we get the total number of simple labeled graphs, i.e.:</p>
 <div class="math notranslate nohighlight">
 \[ \sum_{k=1}^{n} { n-1 \choose k-1 } C_k 2^{ { n-k \choose 2 } } = 2^{ {n \choose 2} } \]</div>
 <p>This relation can be used iteratively, for <span class="math notranslate nohighlight">\(C_1=1\)</span> and increasing <span class="math notranslate nohighlight">\(n=2,\ldots\)</span>, to find values of <span class="math notranslate nohighlight">\(C_n\)</span>. The sequence of solutions is available at <a class="reference external" href="http://oeis.org/A001187/list">OEIS</a> (<em>On-Line Encyclopedia of Integer Sequences</em>). E.g., for <span class="math notranslate nohighlight">\(n=3\)</span> we have <span class="math notranslate nohighlight">\(C_3=4\)</span>, verified by:
-<img src="./img/2/C_3.svg" alt="connected graphs of size 3" style="width: 300px;"/></p>
+<a class="reference internal" href="_images/C_3.png"><img alt="connected graphs of size 3" src="_images/C_3.png" style="width: 300px;" /></a></p>
 </section>
 </section>
 <section id="unlabeled-graphs">
 <h2>Unlabeled Graphs<a class="headerlink" href="#unlabeled-graphs" title="Permalink to this headline">#</a></h2>
 <p>So far we only looked at labeled graphs, i.e. graphs with distinguishable nodes. In many cases, the labeling of the nodes is not relevant, only the “structure” of the graph. For example, there are only 2 different unlabeled connected graphs of 3 nodes, the “path” and the “triangle”:
-<img src="./img/2/unlabeled_C_3.svg" alt="connected unlabeled graphs of size 3" style="width: 150px;"/>
+<a class="reference internal" href="_images/unlabeled_C_3.png"><img alt="connected unlabeled graphs of size 3" src="_images/unlabeled_C_3.png" style="width: 150px;" /></a>
 Comparing that to the 4 labeled connected graphs, the 3 labeled “path” graphs are all equivalent to 1 unlabeled “path”. The 3 labeled “path” graphs are called <a class="reference external" href="https://en.wikipedia.org/wiki/Graph_isomorphism">isomorphic</a>, because they have the same <em>shape</em>, i.e. you can rearrange their labels and get the same graph. With unlabeled graphs, we are essentially counting <a class="reference external" href="https://en.wikipedia.org/wiki/Equivalence_class">equivalence classes</a> under isomorphism.</p>
 <p>Counting unlabeled graphs is hard, because there are varying numbers of isomorphic labeled graphs of each type. In the above example, there are 3 isomorphic “path” graphs, but only one “triangle” graph. Nevertheless, we can easily find a lower bound on the number of unlabeled simple graphs, since there are at most <span class="math notranslate nohighlight">\(n!\)</span> permutations/rearrangements of the labels. Therefore, there are <em>at least</em></p>
 <div class="math notranslate nohighlight">
@@ -565,7 +566,7 @@ Comparing that to the 4 labeled connected graphs, the 3 labeled “path” graph
 <li><p>Use 4. to show that the total number of paths between two nodes in a labeled complete graph of size <span class="math notranslate nohighlight">\(n\)</span> is
 <span class="math notranslate nohighlight">\(  \lfloor e \cdot (n−2)!  \rfloor\)</span></p></li>
 </ol>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 </section>
 </section>
 
