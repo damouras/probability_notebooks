@@ -1,10 +1,9 @@
 name: deploy-book
 
-# Run this when the master or main branch changes
+# Run this when the main branch changes
 on:
   push:
     branches:
-    - master
     - main
     # If your git repository has the Jupyter Book within some-subfolder next to
     # unrelated files, you can make this run only if a file within that specific
@@ -33,15 +32,16 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
-    # (optional) Cache your executed notebooks between runs
-    # if you have config:
-    # execute:
-    #   execute_notebooks: cache
+    # Cache executed notebooks between runs (see `execute_notebooks: cache` in _config.yml).
+    # jupyter-cache matches notebooks by content, so restoring the latest cache is
+    # enough: only notebooks that changed get re-executed.
     - name: cache executed notebooks
       uses: actions/cache@v4
       with:
         path: _build/.jupyter_cache
-        key: jupyter-book-cache-${{ hashFiles('requirements.txt') }}
+        key: jupyter-cache-${{ hashFiles('requirements.txt') }}-${{ github.sha }}
+        restore-keys: |
+          jupyter-cache-${{ hashFiles('requirements.txt') }}-
 
     # Build the book
     - name: Build the book

@@ -5,10 +5,11 @@ title: Probability Notebooks
 author: Sotirios Damouras 
 logo: img/Two_red_dice_01.svg
 
-# Force re-execution of notebooks on each build.
+# Re-execute a notebook only when its content changes (results cached in _build/.jupyter_cache).
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+  execute_notebooks: cache
+  timeout: 300
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -23,7 +24,7 @@ bibtex_bibfiles:
 repository:
   url: https://github.com/damouras/probability_notebooks  # Online location of your book
   #path_to_book: docs  # Optional path to your book, relative to the repository root
-  branch: master  # Which branch of the repository should be used when creating links (optional)
+  branch: main  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository

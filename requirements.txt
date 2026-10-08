@@ -1,3 +1,8 @@
-jupyter-book
-matplotlib
+jupyter-book>=0.15,<2
+ipykernel
 numpy
+scipy
+pandas
+matplotlib
+networkx
+scikit-learn

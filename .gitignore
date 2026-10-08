@@ -1,0 +1,12 @@
+# Jupyter Book / Sphinx build output
+_build/
+docs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
